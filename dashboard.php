@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Check if the user is not logged in
+// // Check if the user is not logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
@@ -65,7 +65,7 @@ if (!isset($_SESSION['user_id'])) {
 
                                 <!-- Dropdown menu -->
                                 <div x-show="open" @click.away="open = false" class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                                    <a href="logout.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@ if (!isset($_SESSION['user_id'])) {
                             </button>
                         </div>
                         <div class="mt-3 space-y-1 px-2">
-                            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-emerald-500 hover:bg-opacity-75">Sign
+                            <a href="logout.php" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-emerald-500 hover:bg-opacity-75">Sign
                                 out</a>
                         </div>
                     </div>

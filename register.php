@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $password = password_hash($password, PASSWORD_DEFAULT);
     }
 
-    if ($name && $email && $password) {
+    if (empty($errors)) {
         // Prepare The SQL Statement
         $query = 'INSERT INTO users (name, email, password) VALUES (:name, :email, :password)';
         $stmt = $pdo->prepare($query);
@@ -71,7 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($stmt->execute($params)) {
             flash('success', 'You have successfully registered. Please log in to continue');
 
-            return header('Location: login.php');
+            header('Location: login.php');
+            exit;
         } else {
             $errors['auth_error'] = 'An error occurred. Please try again';
         }
