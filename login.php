@@ -1,5 +1,6 @@
 <?php
 ob_start();
+session_start();
 require 'helpers.php';
 require 'db.php';
 
@@ -53,7 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = $stmt->fetch();
             // Verify the user & password
             if ($user && password_verify($password, $user['password'])) {
-                session_start();
                 $_SESSION['user_id'] = $user['id'];
                 header('Location: dashboard.php');
                 exit;
